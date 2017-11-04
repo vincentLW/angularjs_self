@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'ui.mask'
+    'ui.mask',
+    'ui.bootstrap'
   ])
   .config(function($stateProvider,$urlRouterProvider) {
     $stateProvider
@@ -60,14 +61,23 @@ angular
         url:'/boostrapDatePicker',
         templateUrl:'views/boostrapDatePicker/test.html',
         controller:'datePickerCtrl'
+      }).state('LineChart',{
+        url:'/LineChart',
+        templateUrl:'views/chart/lineChart.html',
+        controller:'lineChartCtrl'
+      }).state('dashboard',{
+        url:'/dashboard',
+        templateUrl:'views/dashboard/dashboard.html',
+        controller:'dashboardCtrl'
       });
 
       $urlRouterProvider.otherwise('main');
   });
-angular.module('angularjsSelfApp').config(['$qProvider', function($qProvider) {
-  $qProvider.errorOnUnhandledRejections(false);
-}]);
-angular.module('angularjsSelfApp').config(['$locationProvider', function($locationProvider) {
-  $locationProvider.hashPrefix('');
-}]);
+  
+  angular.module('angularjsSelfApp').config(['$qProvider', function($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+  }]);
+  angular.module('angularjsSelfApp').config(['$locationProvider', function($locationProvider) {
+    $locationProvider.hashPrefix('');
+  }]);
 
